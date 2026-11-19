@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>EduTrack apps have moved</title>
+<script>
+// Old address -> new address. The rest of the path is kept, so a saved link to a
+// page opens the same page at the new address (after signing in there).
+// If Cloudflare gave a project a different address, change it here.
+var MOVED = {
+  '/SAT-RW/': 'https://edutrack-sat-rw.pages.dev/',
+  '/PSAT-8-9-R-W/': 'https://edutrack-psat-89-rw.pages.dev/',
+  '/SAT-Maths/': 'https://edutrack-sat-math.pages.dev/'
+};
+(function () {
+  var p = location.pathname;
+  for (var old in MOVED) {
+    var bare = old.slice(0, -1);
+    if (p === bare || p.indexOf(old) === 0) {
+      location.replace(MOVED[old] + p.slice(old.length) + location.search + location.hash);
+      return;
+    }
+  }
+})();
+</script>
+<style>body{font-family:system-ui,sans-serif;max-width:32rem;margin:3rem auto;padding:0 1rem;color:#0f172a}a{color:#2563eb}</style>
+</head>
+<body>
+<h1>The apps have moved</h1>
+<ul>
+<li><a href="https://edutrack-sat-rw.pages.dev/">SAT Reading and Writing</a></li>
+<li><a href="https://edutrack-psat-89-rw.pages.dev/">PSAT 8/9 Reading and Writing</a></li>
+<li><a href="https://edutrack-sat-math.pages.dev/">SAT Math</a></li>
+</ul>
+</body>
+</html>
